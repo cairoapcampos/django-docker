@@ -1,0 +1,76 @@
+
+####################################
+# Exemplo baseado em Django 3.1.2  #
+# Configuração: v1.0               #
+# Data: 18/12/21                   #
+# Autor: Cairo Ap. Campos          #
+####################################
+
+#-------------
+# Adaptado de:
+#-------------
+# https://github.com/fabioruicci/django-postgresql-docker
+# https://hub.docker.com/_/django
+# https://hub.docker.com/_/python
+
+
+# --------------------------------------------------------------------
+# Para criar os containers com o docker-compose e acessar a aplicação:
+# --------------------------------------------------------------------
+# 1. Criar volume de configurações do Django: docker volume create django_config
+# 2. Criar volume de dados para o PostgreSQL: docker volume create postgres_data
+# 3. Criar a rede utilizada:  docker network create network-django
+# 4. Contruir a imagem do Django: docker-compose build
+# 5. Criar os container em background: docker-compose up -d
+# 6. Ver os logs: docker-compose logs
+# 7. Listar todos os containers criados com o docker-compose: docker-compose ps
+# 8. Acesso: http://IP:porta ou http://localhost:porta
+
+#-----------------------
+# Outros comandos uteis:
+#-----------------------
+
+# 1. Iniciar os containers: docker-compose start
+# 2. Parar os containers: docker-compose stop
+# 3. Apagar todos containers criados: docker-compose rm
+# 4. Ver variaveis de ambiente a serem carregadas do arquivo env: docker-compose -f docker-compose.yml config
+
+version: "3.8"
+services:
+  django:
+    ports:
+      - 8000:8000
+    container_name: cont-django-01
+    hostname: cont-django-01
+    restart: always
+    volumes:
+      - django_config:/var/www/django
+    networks: 
+      - default
+    depends_on:
+      - postgresql
+    build: .
+    image: mydjango:latest
+  postgresql:
+    container_name: cont-djangodb-01
+    hostname: cont-djangodb-01
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks: 
+      - default
+    env_file: postgre.env
+    image: postgres:14.1-bullseye
+
+volumes:
+  postgres_data:
+   external: true
+  django_config:
+   external: true
+
+networks:
+ default:
+  external:
+   name: network-django
+
+
