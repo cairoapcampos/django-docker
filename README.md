@@ -10,3 +10,6 @@ Para criar os containers com o docker-compose e acessar a aplicação:
 6. Ver os logs: `docker-compose logs`
 7. Listar todos os containers criados com o docker-compose: `docker-compose ps`
 8. Acesso: `http://IP:8000` ou `http://localhost:8000`
+
+
+![Initial Screen](https://github.com/cairoapcampos/django-docker/blob/main/imgs/acesso.png)
