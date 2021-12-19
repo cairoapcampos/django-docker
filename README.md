@@ -12,4 +12,4 @@ Para criar os containers com o docker-compose e acessar a aplicação:
 8. Acesso: `http://IP:8000` ou `http://localhost:8000`
 
 
-![Initial Screen](https://github.com/cairoapcampos/django-docker/blob/main/imgs/acesso.png)
+![Tela de Teste](https://github.com/cairoapcampos/django-docker/blob/main/imgs/img.png)
