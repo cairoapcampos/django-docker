@@ -1,4 +1,4 @@
-# django-docker
+# django-docker-dev
 
 Para criar os containers com o docker-compose e acessar a aplicação:
 
