@@ -2,7 +2,7 @@
 
 Para criar os containers com o docker-compose e acessar a aplicação:
 
-1. Clonar o repositório: `git clone https://github.com/cairoapcampos/django-docker.git`
+1. Clonar o repositório: `git clone https://github.com/cairoapcampos/django-docker-dev.git`
 2. Entrar no diretório: `cd django-docker-dev/`
 3. Criar volume de configurações do Django: `docker volume create django_config`
 4. Criar volume de dados para o PostgreSQL: `docker volume create postgres_data`
